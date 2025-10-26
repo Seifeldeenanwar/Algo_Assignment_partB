@@ -73,6 +73,7 @@ void choosemethod(){
     int innerflag = 1 ;
     int outerflag = 1 ;
     int choice ;
+    int s ;
     t target ;
     while(outerflag){
     cout << "Enter the size of array -> " ;
@@ -95,14 +96,32 @@ void choosemethod(){
     switch (choice)
     {
     case 1:
-        cout << sequentialIteration(v,target) << endl ;
+        s = sequentialIteration(v,target) ;
+        if(s == -1){
+            cout << "Element "<< target << " not found!" << endl; 
+        }
+        else{
+            cout << "Found at index " << s << endl;
+        }
         break;
     case 2:
-        cout << sequentialRecursive(v,target) << endl; ;
+        s = sequentialRecursive(v,target) ;
+        if(s == -1){
+            cout << "Element "<< target << " not found!" << endl; 
+        }
+        else {
+            cout << "Found at index " << s << endl;
+        }
         break;
     case 3:
         if(issorted<t>(v)){
-        cout << binaryInteration(v,target,0,v.size()-1) << endl ;
+            s = binaryInteration(v,target,0 , v.size()-1) ;
+            if(s == -1){
+                cout << "Element "<< target << " not found!" << endl; 
+            }
+            else {
+                cout << "Found at index " << s << endl;
+            }
         }
         else{
             cout << "cannot apply binary search array not sorted !\n" << endl;
@@ -110,21 +129,27 @@ void choosemethod(){
         break;
     case 4:
         if(issorted<t>(v)){
-        cout << binaryRecursive(v,target,0,v.size()-1) << endl ;
+            s = binaryRecursive(v,target,0,v.size()-1) ;
+            if(s == -1){
+                cout << "Element "<< target << " not found!" << endl; 
+            }
+            else {
+                cout << "Found at index " << s << endl;
+            }
         }
         else{
-            cout << "cannot apply binary search array not sorted ! \n" << endl;
+            cout << "cannot apply binary search array not sorted !\n" << endl;
         }
-        break ;         
+        break;
     default:
         cout << "Invalid choice ! try again" << endl;
         break;
     }
-    cout << "\nChoose: \n0-Apply search on another array \nElse-Apply another method on same array \n-> " ;
+    cout << "\nChoose: \n0-Apply search on another array \n1-Search for another element on same array \n-> " ;
     cin >> innerflag ; 
 }
 innerflag = 1 ;
-cout << "\nChoose: \n0-End program \nElse-Contiue \n-> " ;
+cout << "\nChoose: \n0-End program \n1-Contiue \n-> " ;
 cin >> outerflag ;
 cout<<endl;
 
