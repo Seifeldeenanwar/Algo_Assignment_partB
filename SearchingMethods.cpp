@@ -70,10 +70,12 @@ bool issorted(vector<t> v){
 template<typename t>
 void choosemethod(){
     int sz ;
-    int flag = 1 ;
+    int innerflag = 1 ;
+    int outerflag = 1 ;
     int choice ;
     t target ;
-    cout << "enter the size of array -> " ;
+    while(outerflag){
+    cout << "Enter the size of array -> " ;
     cin >> sz ;
     vector<t> v(sz) ;
     for(int i = 0 ; i < sz ;i++){
@@ -85,7 +87,7 @@ void choosemethod(){
         cout << v[i] << " ";
     }
     cout <<"\n\n";
-    while(flag){
+    while(innerflag){
     cout << "Choose searching method: \n1-Sequential iteration\n2-Sequential recursive\n3-Binary iteration\n4-Binary recursive\n-> ";
     cin >> choice ;
     cout << "Enter element you want to search -> " ;
@@ -118,9 +120,15 @@ void choosemethod(){
         cout << "Invalid choice ! try again" << endl;
         break;
     }
-    cout << "if you want exit press 0 -> " ;
-    cin >> flag ; 
+    cout << "\nChoose: \n0-Apply search on another array \nElse-Apply another method on same array \n-> " ;
+    cin >> innerflag ; 
 }
+innerflag = 1 ;
+cout << "\nChoose: \n0-End program \nElse-Contiue \n-> " ;
+cin >> outerflag ;
+cout<<endl;
+
+    }
 }
 
 
